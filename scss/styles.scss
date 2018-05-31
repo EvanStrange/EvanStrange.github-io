@@ -65,14 +65,10 @@
             font-size: 16px;
             font-family: raleway, monospace;
         }
-        h2{
-            font-weight: bold;
-            font-family: raleway, monospace;
-            font-size: 20px;
+        img{
+            max-width: 100%;
+            height: auto;
         }
-    }
-    .center-image {
-        margin:0 auto;
     }
     #projectSection {
         background-color: $mainPurple;
@@ -116,10 +112,7 @@
             font-family: raleway, monospace; 
         }
     }
-    .move-down {
-        padding-top: 12%;
-        padding-bottom: 8%;
-     }
+
     footer {
       width: 100%;
       background-color: $mainPurple;
@@ -149,12 +142,6 @@
         h3{
             font-size: 44px;
             font-family: righteous, monospace; 
-        }
-    }
-    #credits {
-        h1 {
-            position: absolute;
-            font-size: 0.9em;
         }
     }
     .fa {
