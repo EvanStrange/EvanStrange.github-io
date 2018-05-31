@@ -122,7 +122,8 @@ footer {
 
 #connect h3 {
   font-size: 44px;
-  font-family: righteous, monospace; }
+  font-family: righteous, monospace;
+  padding-bottom: 25px; }
 
 #credits h1 {
   position: absolute;
