@@ -10,12 +10,6 @@
       border: 0 !important;
     }
 
-    .navbar-brand {
-      float: left;
-      min-height: 15px;
-      padding: 0 15px 5px !important;
-    }
-
     .navbar-inverse .navbar-nav .active a,
     .navbar-inverse .navbar-nav .active a.focus,
     .navbar-inverse .navbar-nav .active a.hover {
@@ -27,6 +21,20 @@
            a {
                 font-family: raleway, monospace;
            }
+        }
+        .navbar-brand {
+          position: absolute;
+          width: 100%;
+          left: 0;
+          text-align: left;
+          margin: auto;
+          font-family: raleway, monospace;
+          font-size: 1.4em;
+          font-weight: bold;
+          color:white;
+          a:hover {
+            color: #D5D5D5;
+          }
         }
     }
     .navbar-inverse .navbar-nav li a {
@@ -79,10 +87,31 @@
         color: white;
         width: 100%;
         padding: 10%;
-        h1 {
+        #grand-exchange {
+          width: 50%;
+        }
+        h3 {
             font-family: righteous, monospace;
-            font-size: 34px;
+            font-size: 24px;
             text-align: center;
+        }
+        p {
+          color: white !important;
+          font-size: 14px;
+          font-family: raleway, monospace;
+        }
+        a {
+          color: white !important;
+          font-size: 14px;
+          font-family: raleway, monospace;
+          text-decoration: underline;
+        }
+        .resize-image{
+          width: 60%;
+          height: 70%;
+          padding-left: 10%;
+          display: block;
+          margin: 0 auto;
         }
     }
     .container {
@@ -116,6 +145,10 @@
             font-size: 16px;
             font-family: raleway, monospace; 
         }
+        a {
+          text-decoration: underline;
+          color: black;
+        }
     }
     .move-down {
         padding-top: 12%;
@@ -133,6 +166,7 @@
       }
     }
     #contact {
+      padding: 0 5% 0 0;
         h3{
             font-size: 44px;
             font-family: righteous, monospace; 
@@ -140,18 +174,26 @@
         h4{
             font-family: raleway, monospace;  
         }
-        a {
+        label {
             color: white;
             font-size: 18px;
             font-family: raleway, monospace;
         }
     }
     #connect {
-        h3{
+      h3{
             font-size: 44px;
             font-family: righteous, monospace; 
             padding-bottom: 25px;
-        }
+       }
+      h4{
+          font-family: raleway, monospace;  
+      }
+      #contact-email {
+          color: white !important;
+          font-size: 18px;
+          font-family: raleway, monospace;
+      }
     }
     #credits {
         h1 {

@@ -1,0 +1,336 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+require 'vendor/autoload.php';
+
+$name_field = $_POST['name_field'];
+$email_field = $_POST['email_field'];
+$message_field = $_POST['message_field'];
+
+if ($name_field && $email_field && $message_field == "") {
+  echo "empty form";
+} else { 
+  try {
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    $mail->Host = "smtp.live.com";
+    $mail->Port = 587;
+    $mail->Username = "evanstrange_6@hotmail.com";
+    $mail->Password = "Rumragged2473!";
+    $mail->CharSet = 'utf-8';
+    $mail->addAddress('evanstrange_6@hotmail.com');
+    $mail->addReplyTo($email_field, $name_field);
+    $mail->setFrom('evanstrange_6@hotmail.com', $name_field);
+    $mail->Subject = 'Contact form: ' . $name_field;
+    $mail->Body = "Contact form submission:\n\n" . $message_field . "\n\n Sent by ". $email_field;
+    $mail->Send();
+    if ($mail->Send(true)){
+      echo "<script>alert('Email sent successfully');</script>";
+    } else 
+      echo "<script>alert('Something went wrong when sending the email')</script>";
+  }
+  catch(phpmailerException $e) {
+  echo $e->errorMessage();
+  } catch(Exception $e) {
+  echo $e->getMessage();
+  }
+}?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Evan Strange</title>
+  <meta charset="utf-8">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="storeEmail.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Righteous" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="myNavBar" class="collapse navbar-collapse">
+        <a href="#" class="nav navbar-brand navbar-left">Evan Strange</a>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="list-item active">
+            <a href="#">Home</a>
+          </li>
+          <li class="list-item">
+            <a href="#about">About</a>
+          </li>
+          <li class="list-item">
+            <a href="#projectSection">Projects</a>
+          </li>
+          <li class="list-item">
+            <a href="#connect">Connect</a>
+          </li>
+          <li class="list-item">
+            <a href="#contact">Contact Me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="img/torbay.jpg">
+        <div class="carousel-caption">
+          <h1>evan strange</h1>
+          <h2>Front-End Developer</h2>
+          <br>
+          <button type="button" class="btn btn-default">
+            <a href="#techStack">Learn More</a>
+          </button>
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/capespear.jpg">
+      </div>
+      <div class="item">
+        <img src="img/fjord.jpg">
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <br>
+  <br>
+  <div id="techStack" class="container text-center">
+    <h2>What I'm Using</h2>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="img/html5.png" id="icon">
+      </div>
+      <div class="col-sm-4">
+        <img src="img/javascript.svg" id="icon">
+      </div>
+      <div class="col-sm-4">
+        <img src="img/css3.png" id="icon">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+          <h4>HTML5</h4>
+        </div>
+        <div class="col-sm-4">
+          <h4>JavaScript</h4>
+        </div>
+        <div class="col-sm-4">
+          <h4>CSS3</h4>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="img/AJAX.png" id="icon">
+      </div>
+      <div class="col-sm-4">
+        <img src="img/php.png" id="icon">
+      </div>
+      <div class="col-sm-4">
+        <img src="img/mysql.png" id="icon">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+          <h4>AJAX</h4>
+        </div>
+        <div class="col-sm-4">
+          <h4>PHP</h4>
+        </div>
+        <div class="col-sm-4">
+          <h4>MySQL</h4>
+        </div>
+      </div>
+  </div>
+  <br> 
+  <br>
+  <br>
+  <div class="container">
+    <div id="about" class="row">
+      <div class="col-md-6">
+        <h4>
+          Hi, I'm Evan Strange...
+        </h4>
+        <p>
+          I'm a third year Computing Systems Engineering Technology student at CNA in St. John's, Newfoundland. I am expecting graduation in August 2019. I have had an interest
+          in IT for as long as I can remember...
+        </p>
+        <p>My mother went back to school to do an IT course shortly after I was born, therefore some of my earliest memories
+          are playing brain-teaser games designed for young people on Windows 98. By age 12 I was assembling my own Windows
+          PC from parts purchased locally, in order to better run Guild Wars. My parents were extremely supportive from a
+          young age about my passion in IT.
+        </p>
+        <p>
+          Throughout grade school I began experimenting with doodling, paint and colors. I was fascinated how such simple color schemes
+          could be so visually pleasing. Eventually, my two hobbies collided as I took a course in highschool teaching the
+          fundamentals of HTML and CSS.
+        </p>
+        <p>
+          My co-op program has taught me fundamentals of object-oriented programming, networking, and mobile-app developement. 
+          During my two workterms I was employed for 32 weeks with a SaaS startup called Universal Cognitive Solutions. 
+          At UCS I contributed to the development of a browser-based application to assist with delivering Applied Behavioural Analysis therapy. 
+          I mostly designed and implement front-end components using Angular. I am currently learning more everyday about JavaScript, 
+          as I complete Udemy courses pertaining to React.
+          <p>
+            <b>
+              I'm eager to expand my knowledge in this industry, and am currently looking for full-time employment.
+            </b>
+          </p>
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <img src="img/EvanSprite.png" class="center-image img-responsive">
+      </div>
+    </div>
+  </div>
+
+  <div id="projectSection" class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>IoT Plant Monitoring System</h3>
+        <p>
+          This is the front-end of my technical thesis project. My partner and I made a garden monitoring product using 
+          an Arduino Mega. This device measures temperature, humidity, light intensity and soil moisture. We used AWS IoT, 
+          AWS Lambda, and Amazon DynamoDB to store these values. This front-end was designed entirely using React, with Chart.js
+          for the line graphs. You can read the full report and source code on my <a href="https://github.com/EvanStrange/Projects/tree/master/Capstone%202019">Github</a>.
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <img src="img/flowrFrontEnd.png" class="img-responsive">
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="grand-exchange">
+            <img src="img/Grand Exchange Unity 3D.JPG" class="img-responsive">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <h3>Grand Exchange in Unity3D</h3>
+          <p>
+            This project was my final project for a video game level design course I did in the third year of my program.
+            It is modeled after an iconic location in Old School RuneScape. The location is called the Grand Exchange. The 
+            source code for this project can be found on my <a href="https://github.com/EvanStrange/Projects/tree/master/Grand%20Exchange%20Unity%203D">Github</a>.
+          </p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>College iOS Application</h3>
+        <p>
+          
+          This iOS application was the term project for a third year course I did pertaining to iOS development using Objective-C. 
+          The app features Programs button - a list of programs offered by the college, with a more detailed view upon selecting the 
+          item in the table. A Calendar button which allows users to view the scheduled holidays and important events, as well as create 
+          their own custom events. A MetroBus button, which is simply a webview of the MetroBus website. A Schedules button which enables users 
+          to see their weekly schedule after selecting their program and year. A News button which displays the recent news articles outlined on 
+          the College website. Lastly, a Contacts button - which provides calling and emailing through the App, a webview of the College website as well as a link to the college location using 
+          Google Maps. The source code for this project can be found on my  <a href="https://github.com/EvanStrange/Projects/tree/master/iOS%20College%20App">Github</a>.
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <img src="img/iOS.png" class="resize-image">
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="container">
+    <div id="thankYou" class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <img src="img/sass.png" class="img-responsive">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h4>
+          Thanks for stopping by!
+        </h4>
+        <p class="move-down">
+          This website was built using HTML5, JavaScript, AJAX, MySQL, PHP, CSS3, Bootstrap and Sass. The source code is available <a href="https://github.com/EvanStrange/EvanStrange.github-io">here</a> on my Github, which is linked
+          below in the Connect section. I still have a lot to learn, but I hope you've enjoyed this minimalistic single-page
+          portfolio site.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid text-center">
+    <div class="row">
+      <div id="connect" class="col-sm-6">
+        <h3>Connect</h3>
+        <br>
+        <br>
+        <h4 id="contact-phone">Telephone: (709)765-2473</h4>
+        <a id="contact-email" href="mailto:evanstrange_6@hotmail.com">Email: evanstrange_6@hotmail.com</a>
+        <br>
+        <br>
+        <a href="https://www.linkedin.com/in/evan-strange/" class="fa fa-linkedin"></a>
+        <a href="https://github.com/EvanStrange" class="fa fa-github"></a>
+      </div>
+      <div id="contact" class="col-sm-6">
+          <h3>Contact Me</h3>
+          <?php if (empty($msg)) { ?>
+          <form method="post" onsubmit="storeEmail(this)">
+            <div class="form-group">
+              <label for="name_field">Name*</label>
+              <input type="text" class="form-control" id="name_field" name="name_field" placeholder="First and last name" required>
+            </div>
+            <div class="form-group">
+              <label for="email_field">Email*</label>
+              <input type="email" class="form-control" id="email_field" name="email_field" placeholder="example@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message_field">Message</label>
+              <textarea class="form-control" id="message_field" name="message_field" rows="3" placeholder="Type your message here"></textarea>
+            </div>
+            <button type="submit" value="Submit" class="btn">Send Email</button>
+          </form>
+          <?php } else {
+            echo $msg;
+          } ?>
+        </div>
+    </div>
+  </footer>
+</body>
+<script>
+  var btnContainer = document.getElementById("myNavBar");
+
+  var btns = btnContainer.getElementsByClassName("list-item");
+
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+  }
+</script>
+
+</html>
