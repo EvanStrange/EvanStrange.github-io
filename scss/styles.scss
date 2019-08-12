@@ -65,18 +65,33 @@
     }
 
     #about{
+      @media only screen and (min-width : 768px) {
+        .is-table-row {
+          display: table;
+        }
+        .is-table-row [class*="col-"] {
+          float: none;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
         h4{
-            font-size: 34px;
-            font-family: righteous, monospace;
+          font-size: 2.5em;
+          font-family: righteous, monospace;
         }
         p{
-            font-size: 16px;
+          font-size: 1.4em;
             font-family: raleway, monospace;
         }
         h2{
             font-weight: bold;
             font-family: raleway, monospace;
             font-size: 20px;
+        }
+        img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
     }
     .center-image {
@@ -86,29 +101,34 @@
         background-color: $mainPurple;
         color: white;
         width: 100%;
-        padding: 10%;
-        #grand-exchange {
-          width: 50%;
+        padding: 5%;
+        @media only screen and (min-width : 768px) {
+          .is-table-row {
+            display: table;
+          }
+          .is-table-row [class*="col-"] {
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+          }
         }
         h3 {
-            font-family: righteous, monospace;
-            font-size: 24px;
-            text-align: center;
+          font-family: righteous, monospace;
+          font-size: 2.5em;
         }
         p {
           color: white !important;
-          font-size: 14px;
+          font-size: 1.4em;
           font-family: raleway, monospace;
+          float: left;
         }
         a {
           color: white !important;
-          font-size: 14px;
+          font-size: 1.2em;
           font-family: raleway, monospace;
           text-decoration: underline;
         }
-        .resize-image{
-          width: 60%;
-          height: 70%;
+        .center-image{
           padding-left: 10%;
           display: block;
           margin: 0 auto;
@@ -126,7 +146,7 @@
     #techStack{
         h2{
             font-family: righteous, monospace;
-            padding-bottom: 20px;
+            padding-bottom: 3.0em;
         }
         h4{
             font-family: raleway, monospace; 
@@ -136,13 +156,12 @@
 
     #thankYou{
         h4{
-            font-size: 34px;
-            font-family: righteous, monospace;
-            text-align: center;
+          font-size: 2.5em;
+          font-family: righteous, monospace;
         
         }
         p{
-            font-size: 16px;
+          font-size: 1.4em;
             font-family: raleway, monospace; 
         }
         a {
@@ -168,15 +187,15 @@
     #contact {
       padding: 0 5% 0 0;
         h3{
-            font-size: 44px;
-            font-family: righteous, monospace; 
+          font-size: 2.5em;
+          font-family: righteous, monospace; 
         }
         h4{
             font-family: raleway, monospace;  
         }
         label {
             color: white;
-            font-size: 18px;
+            font-size: 1.4em;
             font-family: raleway, monospace;
         }
     }
@@ -198,12 +217,12 @@
     #credits {
         h1 {
             position: absolute;
-            font-size: 0.9em;
+            font-size: 1.2em;
         }
     }
     .fa {
       padding: 10px !important;
-      font-size: 30px !important;
+      font-size: 2.5em !important;
       color: white;
     }
     .fa:hover {
