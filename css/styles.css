@@ -39,6 +39,7 @@
 
 .carousel img {
   width: 100%;
+  padding-top: 2.5em;
 }
 
 .carousel-caption {
